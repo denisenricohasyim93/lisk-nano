@@ -93,6 +93,8 @@ class Voting extends React.Component {
   }
 
   render() {
+    console.log('landing here this.props.delegates', this.props.delegates);
+    console.log('landing here this.props.delegates.length', this.props.delegates.length);
     return (
       <div className="box noPaddingBox">
         <Header
@@ -121,7 +123,9 @@ class Voting extends React.Component {
           </Table>
         </div>
         {
-          (!this.isInitial && this.props.delegates.length === 0) &&
+          ((!this.isInitial && this.props.delegates.length === 0)
+          ||
+          this.props.delegates.length >= 1501) &&
           <div className='hasPaddingRow empty-message'>{this.props.t('No delegates found')}</div>
         }
         <Waypoint bottomOffset='-80%'
